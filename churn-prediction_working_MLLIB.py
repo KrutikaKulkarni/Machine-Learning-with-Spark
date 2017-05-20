@@ -27,7 +27,7 @@ pd.options.display.mpl_style = 'default'
 
 # ## Fetching and Importing Churn Data
 # 
-# For this tutorial, we'll be using the Orange Telecoms Churn Dataset. It consists of cleaned customer activity data (features), along with a churn label specifying whether the customer canceled their subscription or not. The data can be fetched from BigML's S3 bucket, [churn-80](https://bml-data.s3.amazonaws.com/churn-bigml-80.csv) and [churn-20](https://bml-data.s3.amazonaws.com/churn-bigml-20.csv). The two sets are from the same batch, but have been split by an 80/20 ratio. We'll use the larger set for training and cross-validation purposes, and the smaller set for final testing and model performance evaluation. The two data sets have been included in this repository for convenience.
+# For this example, we'll be using the Orange Telecoms Churn Dataset. It consists of cleaned customer activity data (features), along with a churn label specifying whether the customer canceled their subscription or not. The data can be fetched from BigML's S3 bucket, [churn-80](https://bml-data.s3.amazonaws.com/churn-bigml-80.csv) and [churn-20](https://bml-data.s3.amazonaws.com/churn-bigml-20.csv). The two sets are from the same batch, but have been split by an 80/20 ratio. We'll use the larger set for training and cross-validation purposes, and the smaller set for final testing and model performance evaluation. The two data sets have been included in this repository for convenience.
 # 
 # In order to read the CSV data and parse it into Spark [DataFrames](http://spark.apache.org/docs/latest/sql-programming-guide.html), we'll use the [CSV package](https://github.com/databricks/spark-csv). The library has already been loaded using the initial pyspark bin command call, so we're ready to go.
 # 
@@ -35,12 +35,12 @@ pd.options.display.mpl_style = 'default'
 
 # In[2]:
 
-CV_data = sqlContext.read.load('/Users/snerur/insy5376/churn-bigml-80.csv', 
+CV_data = sqlContext.read.load('/Users/kruti/churn-bigml-80.csv', 
                           format='com.databricks.spark.csv', 
                           header='true', 
                           inferSchema='true')
 
-final_test_data = sqlContext.read.load('/Users/snerur/insy5376/churn-bigml-20.csv', 
+final_test_data = sqlContext.read.load('/Users/kruti/churn-bigml-20.csv', 
                           format='com.databricks.spark.csv', 
                           header='true', 
                           inferSchema='true')
